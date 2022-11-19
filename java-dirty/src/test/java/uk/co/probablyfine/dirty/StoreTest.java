@@ -9,6 +9,7 @@ import uk.co.probablyfine.dirty.testobjects.SmallObject;
 import java.io.File;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.BiConsumer;
@@ -255,7 +256,7 @@ public class StoreTest {
     }
 
     private File createTempFile() throws IOException {
-        File tempFile = File.createTempFile(randomUUID().toString(), ".dirty");
+        File tempFile = Files.createTempFile(randomUUID().toString(), ".dirty").toFile();
         tempFile.deleteOnExit();
         return tempFile;
     }
